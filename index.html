@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#1a1030" />
+  <title>Super POPO Quest</title>
+  <meta name="description" content="ピンクのひとつめ「ポポ」が まりゅうに いどむ、スーファミ風 RPG。スーパーポポ シリーズの しゅうたいせい" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="bar">
+      <h1>Super POPO Quest <small>～ポポの だいぼうけん～</small></h1>
+      <button id="mute" type="button" class="chip">🔊 音オン</button>
+    </header>
+    <div class="screen">
+      <canvas id="game" width="256" height="224" aria-label="Super POPO Quest ゲーム画面"></canvas>
+    </div>
+
+    <div id="touch" class="pad" aria-hidden="true">
+      <div class="dpad">
+        <span data-btn="up" class="b up">▲</span>
+        <span data-btn="left" class="b left">◀</span>
+        <span data-btn="right" class="b right">▶</span>
+        <span data-btn="down" class="b down">▼</span>
+      </div>
+      <span data-btn="start" class="b start">≡</span>
+      <div class="ab">
+        <span data-btn="run" class="b run">B</span>
+        <span data-btn="jump" class="b jump">A</span>
+      </div>
+    </div>
+
+    <section class="help">
+      <h2>おはなし</h2>
+      <p>ある よる、ユウタの へやで ながれぼしを みた ポポ。アンテナが ビリビリ ひかって——きづくと そこは、
+        まりゅう ドラグザードが めざめようとしている けんと まほうの せかい「ステラード」だった。
+        ひとつめに アンテナ…その すがたは 1000ねんまえに まりゅうを ふういんした でんせつの ゆうしゃ そっくり！
+        こわれた UFOを なおして ちきゅうへ かえるため、そして この せかいを まもるため、ポポたちの だいぼうけんが はじまる。</p>
+      <h2>そうさ</h2>
+      <ul>
+        <li><kbd>←</kbd><kbd>↑</kbd><kbd>→</kbd><kbd>↓</kbd> あるく・カーソル</li>
+        <li><kbd>Z</kbd> / <kbd>Space</kbd> / <kbd>Enter</kbd>（A）はなす・しらべる・けってい</li>
+        <li><kbd>X</kbd> / <kbd>Esc</kbd> / <kbd>Shift</kbd>（B）メニュー・キャンセル</li>
+        <li><kbd>M</kbd> 音の オンオフ ／ ゲームパッド・スマホの タッチにも たいおう</li>
+      </ul>
+      <h2>ヒント</h2>
+      <ul>
+        <li>まちの <b>やどや</b> で HP・MP が ぜんかい。きろく（セーブ）は メニューの「きろく」か やどや・きょうかいで</li>
+        <li>ダンジョンの おくの <b>みどりに ひかる ゆか</b> は かいふくポイント。ボスの まえに ある</li>
+        <li>てきには <b>よわい ぞくせい</b> が ある。「ずかん」で しらべられるよ</li>
+        <li>ユウタが どうぐを つかうと かいふくりょうが 1.5ばい。ガンテツの「かばう」で なかまを まもろう</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/sprites.js"></script>
+  <script src="js/gfx.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/tiles.js"></script>
+  <script src="js/chars.js"></script>
+  <script src="js/monsters.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/field.js"></script>
+  <script src="js/battle.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#3a4a6a">
+<canvas id="c"></canvas>
+<script src="../js/sprites.js"></script><script src="../js/gfx.js"></script>
+<script src="../js/monsters.js"></script>
+<script src="../js/chars.js" onerror="0"></script>
+<script>
+const ids = Object.keys(Q.monsters.DEFS);
+const S = +(new URLSearchParams(location.search).get('s')||3);
+const only = new URLSearchParams(location.search).get('only');
+const list = only ? only.split(',') : ids;
+const c = document.getElementById('c'); const W = 1200; c.width = W; c.height = 2400;
+const g = c.getContext('2d'); g.imageSmoothingEnabled = false;
+let x = 8, y = 8, rowH = 0;
+for (const id of list) {
+  const im = Q.monsters.get(id);
+  const w = im.width * S, h = im.height * S;
+  if (x + w > W) { x = 8; y += rowH + 22; rowH = 0; }
+  g.drawImage(im, x, y, w, h);
+  g.fillStyle = '#fff'; g.font = '12px sans-serif'; g.fillText(id, x, y + h + 13);
+  x += Math.max(w, 60) + 12; rowH = Math.max(rowH, h);
+}
+c.height = y + rowH + 30; // note: resizing clears; redraw
+const g2 = c.getContext('2d'); g2.imageSmoothingEnabled = false; x = 8; y = 8; rowH = 0;
+for (const id of list) {
+  const im = Q.monsters.get(id); const w = im.width * S, h = im.height * S;
+  if (x + w > W) { x = 8; y += rowH + 22; rowH = 0; }
+  g2.drawImage(im, x, y, w, h); g2.fillStyle = '#fff'; g2.font = '12px sans-serif'; g2.fillText(id, x, y + h + 13);
+  x += Math.max(w, 60) + 12; rowH = Math.max(rowH, h);
+}
+document.title = 'done';
+</script>

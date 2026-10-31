@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#4a7a4a">
+<canvas id="c" width="1200" height="800"></canvas>
+<script src="../js/sprites.js"></script><script src="../js/gfx.js"></script><script src="../js/chars.js"></script>
+<script>
+const g = document.getElementById('c').getContext('2d'); g.imageSmoothingEnabled=false;
+const who = ['popo','yuta','meru','gantetsu','elder','king','princess','soldier','man','man2','woman','woman2','granny','kid','girl','uomasa','innkeep','priest','miner','snowman','fubukina','garm','cat','yamipopo'];
+let y=4;
+who.forEach((w,i)=>{ const col = i%2, row = Math.floor(i/2); const ox = col*600+4, oy=row*50+4;
+  for (let d=0; d<4; d++) for (let f=0; f<3; f++) g.drawImage(Q.chars.field(w,d,f), ox+(d*3+f)*34, oy, 32, 44);
+  g.fillStyle='#fff'; g.font='11px sans-serif'; g.fillText(w, ox+ 12*34, oy+20);
+});
+const poses=['idle','step','atk','cast','hurt','guard','win','ko'];
+['popo','yuta','meru','gantetsu'].forEach((w,i)=>{ poses.forEach((p,j)=>{ const im=Q.chars.battle(w,p,1); g.drawImage(im, 4+j*60 + (i%2)*500, 620+Math.floor(i/2)*90, im.width*2, im.height*2); }); });
+</script>

@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#222">
+<canvas id="c" width="1200" height="900"></canvas>
+<script src="../js/sprites.js"></script><script src="../js/gfx.js"></script><script src="../js/tiles.js"></script>
+<script>
+const g = document.getElementById('c').getContext('2d'); g.imageSmoothingEnabled=false;
+const ids = Object.keys(Q.tiles.T); let i=0;
+for (const id of ids) { const fr = Q.tiles.frames(id); const x=(i%20)*58+4, y=Math.floor(i/20)*60+4; g.drawImage(fr[0],x,y,48,48); g.fillStyle='#fff'; g.font='9px sans-serif'; g.fillText(id,x,y+57); i++; }
+const bgs=['grass','forest','cave','mine','snow','ice','volcano','castle','dragon','space'];
+bgs.forEach((b,j)=>{ g.drawImage(Q.tiles.battleBg(b), (j%4)*296+4, 300+Math.floor(j/4)*160, 256*1.1, 152*1.0); });
+['chest','chestopen','orbG','ufoship'].forEach((o,j)=>g.drawImage(Q.tiles.obj(o), 900+j*60, 780, Q.tiles.obj(o).width*3, Q.tiles.obj(o).height*3));
+</script>
